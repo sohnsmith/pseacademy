@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,9 +18,9 @@ class MyApp extends StatelessWidget {
         // scaffoldBackgroundColor: Colors.white,
         materialTapTargetSize: MaterialTapTargetSize.padded,
         appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.white,
-            elevation: 0,
-       ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+        ),
         fontFamily: 'Pretendard',
         colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.grey,
@@ -39,7 +41,6 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'PSE',
-
       home: const MyHomePage(title: 'PSE'),
     );
   }
@@ -55,36 +56,101 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _randomNumber = 0;
+  String topic = "Random Topic";
+  List<String> topicList = [
+    "A cold",
+    "Seasons",
+    "Friends",
+    "Studying",
+    "Cell phones",
+    "Movies",
+    "Food",
+    "Working out",
+    "Coffee",
+    "High school",
+    "Drinking",
+    "Cell-phone games",
+    "Clothes",
+    "Family",
+    "The internet",
+    "Vacation",
+    "Celebrities",
+    "School",
+    "Pet peeves",
+    "Relatives",
+    "Favorite Holiday",
+    "Least Favorite Holiday",
+    "Goals",
+    "Parents",
+    "Siblings",
+    "Books",
+    "Presents",
+    "Lunch",
+    "Dramas",
+    "American TV shows",
+    "Sleep",
+    "Part-Time Jobs",
+    "Alcohol",
+    "Social Networking Sites",
+    "PSE",
+    "Sports",
+    "Hospital",
+    "How long...",
+    "Restaurants",
+    "Retreat",
+    "Christmas",
+    "Fast food",
+    "Pocket money",
+    "Best friend",
+    "College entrance exam",
+    "Academy",
+    "Sports",
+    "English",
+    "Naps",
+    "Hair salons",
+    "Pets",
+    "Presents" ,
+    "Hobbies",
+    "Amusement Parks",
+    "Ideal type",
+    "Drinking games",
+    "Music",
+    "Certifications",
+    "Arguments",
+    "Personal hygiene"
+  ];
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      _randomNumber = Random().nextInt(10);
+      topic = topicList[_randomNumber];
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
-        title: Text(widget.title,style: const TextStyle(color: Colors.white),),
+        title: Text(
+          widget.title,
+          style: const TextStyle(color: Colors.white),
+        ),
       ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              "Today's Topic",
+              "My topic for today is...",
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              topic,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
@@ -93,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.cached),
-      ), 
+      ),
     );
   }
 }
