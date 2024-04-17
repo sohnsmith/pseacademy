@@ -56,6 +56,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // bool _isHided = true;
   int _randomNumber = 0;
   String topic = "Random Topic";
   List<String> topicList = [
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Naps",
     "Hair salons",
     "Pets",
-    "Presents" ,
+    "Presents",
     "Hobbies",
     "Amusement Parks",
     "Ideal type",
@@ -123,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      _randomNumber = Random().nextInt(10);
+      _randomNumber = Random().nextInt(60);
       topic = topicList[_randomNumber];
     });
   }
@@ -145,13 +146,36 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               "My topic for today is...",
             ),
+            const SizedBox(height: 10),
             Text(
               topic,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
               ),
             ),
+            // IconButton(
+            //   onPressed: () {
+            //     setState(() {
+            //       _isHided = !_isHided;
+            //     });
+            //   },
+            //   icon: const Icon(Icons.question_mark_outlined),
+            //   style: const ButtonStyle(
+            //     iconColor: MaterialStatePropertyAll(Colors.white),
+            //     backgroundColor: MaterialStatePropertyAll(Colors.black),
+            //   ),
+            // ),
+            // Offstage(
+            //   offstage: _isHided,
+            //   child: const Column(
+            //     children: [
+            //       Text('Following Question1?'),
+            //       Text('Following Question2?'),
+            //       Text('Following Question3?'),
+            //     ],
+            //   ),
+            // )
           ],
         ),
       ),
