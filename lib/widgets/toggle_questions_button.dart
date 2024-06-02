@@ -3,26 +3,15 @@ import 'package:provider/provider.dart';
 import '../providers/topic_provider.dart';
 
 class ToggleQuestionsButton extends StatelessWidget {
-  const ToggleQuestionsButton({Key? key}) : super(key: key);
+  const ToggleQuestionsButton({super.key}); // super.key 사용
 
   @override
   Widget build(BuildContext context) {
     final topicProvider = Provider.of<TopicProvider>(context);
-
-    return ElevatedButton.icon(
-      icon: Icon(
-        topicProvider.showQuestions
-            ? Icons.question_answer_outlined
-            : Icons.question_answer,
-      ),
-      label: Text(
-        topicProvider.showQuestions ? 'Hide Questions' : 'Show Questions',
-      ),
+    return ElevatedButton(
       onPressed: topicProvider.toggleQuestions,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        textStyle: const TextStyle(fontSize: 16),
-      ),
+      child: Text(
+          topicProvider.showQuestions ? 'Hide Questions' : 'Show Questions'),
     );
   }
 }
