@@ -19,6 +19,7 @@ class _TimerButtonState extends State<TimerButton> {
     if (_isRunning) {
       _timer.cancel();
     } else {
+      _start = 0; // 타이머를 리셋합니다.
       _timer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
         setState(() {
           _start++;
@@ -29,6 +30,9 @@ class _TimerButtonState extends State<TimerButton> {
     setState(() {
       _isRunning = !_isRunning;
     });
+    if (!_isRunning) {
+      widget.onTimeUpdate(_start);
+    }
   }
 
   @override
@@ -36,7 +40,7 @@ class _TimerButtonState extends State<TimerButton> {
     return FloatingActionButton(
       onPressed: _startStopTimer,
       tooltip: _isRunning ? 'Stop Timer' : 'Start Timer',
-      child: Icon(_isRunning ? Icons.pause : Icons.play_arrow),
+      child: Icon(_isRunning ? Icons.stop : Icons.play_arrow),
     );
   }
 }
