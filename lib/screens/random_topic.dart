@@ -12,9 +12,10 @@ class RandomTopic extends StatelessWidget {
     final topicProvider = Provider.of<TopicProvider>(context);
 
     return Scaffold(
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Text("My topic for today is..."),
             const SizedBox(height: 10),
@@ -27,15 +28,17 @@ class RandomTopic extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              "Month: ${topicProvider.currentTopic.month}, Day: ${topicProvider.currentTopic.day}",
+              "${topicProvider.currentTopic.month} Day${topicProvider.currentTopic.day}",
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.normal,
               ),
             ),
+            const SizedBox(height: 20),
+            const Divider(color: Colors.grey),
             const SizedBox(height: 10),
             const ToggleQuestionsButton(),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             if (topicProvider.showQuestions)
               QuestionList(questions: topicProvider.currentTopic.questions),
           ],
