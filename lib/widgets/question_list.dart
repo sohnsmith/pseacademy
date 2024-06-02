@@ -12,9 +12,18 @@ class QuestionList extends StatelessWidget {
       children: questions
           .map((question) => Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Text(
-                  question,
-                  style: const TextStyle(fontSize: 16),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("• ",
+                        style: TextStyle(fontSize: 16)), // 불릿 포인트 추가
+                    Expanded(
+                      child: Text(
+                        question,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ],
                 ),
               ))
           .toList(),
