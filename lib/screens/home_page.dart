@@ -117,7 +117,10 @@ class _MyHomePageState extends State<MyHomePage>
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge
-                                    ?.copyWith(fontSize: 24),
+                                    ?.copyWith(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                               ),
                               const SizedBox(height: 10),
                               Text(
