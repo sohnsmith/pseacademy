@@ -36,41 +36,44 @@ void _selectMonth(BuildContext context) {
   showModalBottomSheet(
     context: context,
     builder: (BuildContext context) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTile(
-            title: const Text(
-              '[BM1] 1, 4, 7, 10월',
-              textAlign: TextAlign.center,
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTile(
+              title: const Text(
+                '[BM1] 1, 4, 7, 10월',
+                textAlign: TextAlign.center,
+              ),
+              onTap: () {
+                topicProvider.setSelectedMonth('BM1');
+                Navigator.pop(context);
+              },
             ),
-            onTap: () {
-              topicProvider.setSelectedMonth('BM1');
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: const Text(
-              '[BM2] 2, 5, 8, 11월',
-              textAlign: TextAlign.center,
+            ListTile(
+              title: const Text(
+                '[BM2] 2, 5, 8, 11월',
+                textAlign: TextAlign.center,
+              ),
+              onTap: () {
+                topicProvider.setSelectedMonth('BM2');
+                Navigator.pop(context);
+              },
             ),
-            onTap: () {
-              topicProvider.setSelectedMonth('BM2');
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            titleAlignment: ListTileTitleAlignment.center,
-            title: const Text(
-              '[BM3] 3, 6, 9, 12월',
-              textAlign: TextAlign.center,
+            ListTile(
+              titleAlignment: ListTileTitleAlignment.center,
+              title: const Text(
+                '[BM3] 3, 6, 9, 12월',
+                textAlign: TextAlign.center,
+              ),
+              onTap: () {
+                topicProvider.setSelectedMonth('BM3');
+                Navigator.pop(context);
+              },
             ),
-            onTap: () {
-              topicProvider.setSelectedMonth('BM3');
-              Navigator.pop(context);
-            },
-          ),
-        ],
+          ],
+        ),
       );
     },
   );
@@ -83,19 +86,22 @@ void _selectDay(BuildContext context) {
     builder: (BuildContext context) {
       return SizedBox(
         height: 300,
-        child: ListView(
-          children: List<Widget>.generate(20, (int index) {
-            return ListTile(
-              title: Text(
-                'Day ${index + 1}',
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {
-                topicProvider.setSelectedDay(index + 1);
-                Navigator.pop(context);
-              },
-            );
-          }),
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 30),
+          child: ListView(
+            children: List<Widget>.generate(20, (int index) {
+              return ListTile(
+                title: Text(
+                  'Day ${index + 1}',
+                  textAlign: TextAlign.center,
+                ),
+                onTap: () {
+                  topicProvider.setSelectedDay(index + 1);
+                  Navigator.pop(context);
+                },
+              );
+            }),
+          ),
         ),
       );
     },
