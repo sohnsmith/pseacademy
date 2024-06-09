@@ -40,21 +40,21 @@ void _selectMonth(BuildContext context) {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            title: const Text('BM1'),
+            title: const Text('BM1: 1, 4, 7, 10월'),
             onTap: () {
               topicProvider.setSelectedMonth('BM1');
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text('BM2'),
+            title: const Text('BM2: 2, 5, 8, 11월'),
             onTap: () {
               topicProvider.setSelectedMonth('BM2');
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text('BM3'),
+            title: const Text('BM3: 3, 6, 9, 12월'),
             onTap: () {
               topicProvider.setSelectedMonth('BM3');
               Navigator.pop(context);
